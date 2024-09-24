@@ -1,0 +1,25 @@
+.app-footer {
+  background-color: #282c34;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+.wrap-logo {
+  background-color: #282c34;
+}
+.additional-info {
+  display: flex;
+  flex-direction: row;
+}
+.footer-info {
+  width: 30%;
+  margin: auto;
+}

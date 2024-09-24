@@ -1,0 +1,35 @@
+<header>
+  <mat-toolbar class="app-header">
+    <span class="logo">Restaurant menu</span>
+  </mat-toolbar>
+  <div class="search-container">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="type here for product..."
+        (input)="onSearch($event)"
+      />
+    </mat-form-field>
+  </div>
+</header>
+<div class="product-list">
+  <mat-card *ngFor="let product of filteredProducts" class="product-card">
+    <div>
+      <mat-card-header>
+        <mat-card-title class="product-title">{{
+          product.name
+        }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img
+          mat-card-image
+          [src]="product.image"
+          alt="{{ product.name }}"
+          class="product-photo"
+        />
+        <p><strong>Price:</strong> {{ product.price }}</p>
+        <p><strong>Ingredients:</strong> {{ product.ingredients }}</p>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>

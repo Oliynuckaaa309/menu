@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>{{ isEdit ? 'Edit' : 'Add' }} Dish</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="categoryDishForm" class="form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Dish Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter dish name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Dish Weight</mat-label>
+      <input
+        matInput
+        formControlName="weight"
+        placeholder="Enter dish weight"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        formControlName="price"
+        type="number"
+        placeholder="Enter price"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Ingredients</mat-label>
+      <textarea
+        matInput
+        formControlName="ingredients"
+        placeholder="Enter ingredients"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="image" placeholder="Enter image URL" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()" class="btn">Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    class="btn"
+    [disabled]="!categoryDishForm.valid"
+    (click)="onSubmit()"
+  >
+    {{ isEdit ? 'Save' : 'Add' }}
+  </button>
+</mat-dialog-actions>

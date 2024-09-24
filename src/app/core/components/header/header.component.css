@@ -1,0 +1,44 @@
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282c34;
+  padding: 15px 20px;
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+input {
+  height: 30px;
+  padding: 5px;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 0 1 200px;
+  transition: transform 0.2s;
+}
+.product-photo {
+  width: 80%;
+  height: 80%;
+}
+.product-title {
+  height: 35px;
+}

@@ -1,0 +1,228 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "sets",
+      "image": "assets/images/nav-img-sets.svg"
+    },
+    {
+      "id": "2",
+      "name": "rolls",
+      "image": "/assets/images/nav-img-rolls.svg"
+    },
+    {
+      "id": "3",
+      "name": "drinks",
+      "image": "/assets/images/nav-img-drinks.svg"
+    },
+    {
+      "id": "4",
+      "name": "sauces",
+      "image": "/assets/images/icon.svg"
+    }
+  ],
+  "sets": [
+    {
+      "id": "5",
+      "categoryName": "sets",
+      "name": "Philadelphia Set",
+      "weight": "800g",
+      "price": 129,
+      "ingredients": "Salmon, Avocado, Philadelphia Cheese, Rice, Nori, Soy Sauce",
+      "image": "/assets/images/imgonline-com-ua-compressed-gqugtbdvryaongv-scaled.jpg"
+    },
+    {
+      "id": "6",
+      "categoryName": "sets",
+      "name": "Philadelphia Set",
+      "weight": "800g",
+      "price": 190,
+      "ingredients": "Salmon, Avocado, Philadelphia Cheese, Rice, Nori, Soy Sauce",
+      "image": "/assets/images/imgonline-com-ua-compressed-gqugtbdvryaongv-scaled.jpg"
+    },
+    {
+      "id": "7",
+      "categoryName": "sets",
+      "name": "California Set",
+      "weight": "750g",
+      "price": 1299,
+      "ingredients": "Crab Sticks, Avocado, Tobiko Caviar, Cucumber, Rice, Nori",
+      "image": "/assets/images/imgonline-com-ua-compressed-jknw6idh54664-scaled.jpg"
+    },
+    {
+      "id": "8",
+      "categoryName": "sets",
+      "name": "Tempura Set1",
+      "weight": "850g",
+      "price": 100099,
+      "ingredients": "Tempura Shrimp, Salmon, Avocado, Rice, Nori, Tempura Batter",
+      "image": "/assets/images/imgonline-com-ua-compressed-onqhpofp61f5-scaled.jpg"
+    },
+    {
+      "id": "4404",
+      "categoryName": "sets",
+      "name": "fref",
+      "weight": "gerg",
+      "price": 5,
+      "ingredients": "gtrgt",
+      "image": "trgrt"
+    },
+    {
+      "id": "8b48",
+      "name": "New dish",
+      "weight": "300g",
+      "price": 20000,
+      "ingredients": "fish and rice",
+      "image": "/assets/images/imgonline-com-ua-compressed-gqugtbdvryaongv-scaled.jpg"
+    },
+    {
+      "id": "2a55",
+      "name": "new dish",
+      "weight": "dfdsf",
+      "price": 55656,
+      "ingredients": "adsfasdf",
+      "image": "adfasdfasdf"
+    },
+    {
+      "id": "eefa",
+      "categoryName": "sets",
+      "name": "dish name",
+      "weight": "sdfadf",
+      "price": 5333,
+      "ingredients": "rice and fish",
+      "image": "/assets/images/imgonline-com-ua-compressed-gqugtbdvryaongv-scaled.jpg"
+    },
+    {
+      "id": "8580",
+      "name": "bgbgf",
+      "weight": "bgb",
+      "price": 6,
+      "ingredients": "tynt",
+      "image": "hthb",
+      "categoryName": "sets"
+    }
+  ],
+  "rolls": [
+    {
+      "id": "9",
+      "categoryName": "rolls",
+      "name": "Philadelphia Roll",
+      "weight": "250g",
+      "price": 3000,
+      "ingredients": "Salmon, Philadelphia Cheese, Avocado, Rice, Nori",
+      "image": "/assets/images/1.-filadelfiya-z-lososem.jpg"
+    },
+    {
+      "id": "10",
+      "categoryName": "rolls",
+      "name": "California Roll",
+      "weight": "230g",
+      "price": 350,
+      "ingredients": "Crab Sticks, Avocado, Cucumber, Tobiko Caviar, Rice, Nori",
+      "image": "/assets/images/1.1-kaliforniya-z-lososem-v-kunzhuti.jpg"
+    },
+    {
+      "id": "11",
+      "categoryName": "rolls",
+      "name": "Spicy Tuna Roll",
+      "weight": "240g",
+      "price": 300,
+      "ingredients": "Spicy Tuna, Avocado, Cucumber, Spicy Mayo, Rice, Nori",
+      "image": "/assets/images/photo_2022-07-09_13-28-56.jpg"
+    },
+    {
+      "id": "12",
+      "categoryName": "rolls",
+      "name": "Tempura Shrimp Roll",
+      "weight": "260g",
+      "price": 200,
+      "ingredients": "Tempura Shrimp, Avocado, Cucumber, Rice, Nori, Tempura Batter",
+      "image": "/assets/images/7.-filadelfiya-grin-z-krevetkoyu.jpg"
+    },
+    {
+      "id": "3109",
+      "categoryName": "rolls",
+      "name": "fvfdv",
+      "weight": "vrerve",
+      "price": 5,
+      "ingredients": "gththt",
+      "image": "ththth"
+    }
+  ],
+  "sauces": [
+    {
+      "id": "13",
+      "name": "Wasabi Sauce",
+      "weight": "50g",
+      "price": 30,
+      "ingredients": "Wasabi Powder, Water, Soy Sauce",
+      "image": "/assets/images/4444.png",
+      "categoryName": "sauces"
+    },
+    {
+      "id": "14",
+      "categoryName": "sauces",
+      "name": "Soy Sauce6",
+      "weight": "100ml",
+      "price": 30,
+      "ingredients": "Soybeans, Wheat, Water, Salt",
+      "image": "/assets/images/66666.jpg"
+    },
+    {
+      "id": "15",
+      "name": "Mustard Sauce",
+      "weight": "60g",
+      "price": 30,
+      "ingredients": "Mustard, Vinegar, Soy Sauce, Honey",
+      "image": "/assets/images/8786612.png",
+      "categoryName": "sauces"
+    }
+  ],
+  "drinks": [
+    {
+      "id": "16",
+      "categoryName": "drinks",
+      "name": "Pepsi",
+      "weight": "330ml",
+      "price": 6,
+      "ingredients": "Carbonated Water, Sugar, Caramel Color, Phosphoric Acid, Caffeine",
+      "image": "/assets/images/pepsicola.jpg"
+    },
+    {
+      "id": "17",
+      "name": "Fanta",
+      "weight": "330ml",
+      "price": 50,
+      "ingredients": "Carbonated Water, Sugar, Orange Juice Concentrate, Citric Acid, Natural Flavors",
+      "image": "/assets/images/fanta-033.jpg",
+      "categoryName": "drinks"
+    },
+    {
+      "id": "18",
+      "name": "Orange Juice",
+      "weight": "900ml",
+      "price": 30,
+      "ingredients": "100% Fresh Orange Juice",
+      "image": "/assets/images/sandora-apelsyn.png",
+      "categoryName": "drinks"
+    },
+    {
+      "id": "7763",
+      "categoryName": "drinks",
+      "name": "fdvfd",
+      "weight": "vfdv fd",
+      "price": 4,
+      "ingredients": "trfgr",
+      "image": "rtfgr"
+    },
+    {
+      "id": "2819",
+      "categoryName": "drinks",
+      "name": "fgf",
+      "weight": "fgbf",
+      "price": 5,
+      "ingredients": "htrhbrt",
+      "image": "hbthbt"
+    }
+  ]
+}

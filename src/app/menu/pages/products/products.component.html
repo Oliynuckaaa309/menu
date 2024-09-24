@@ -1,0 +1,30 @@
+<button
+  mat-icon-button
+  aria-label="Add"
+  (click)="openModalWindow('add')"
+  id="add"
+>
+  <mat-icon>add</mat-icon>
+</button>
+<div class="products">
+  <mat-card
+    class="product-item"
+    *ngFor="let item of products"
+    (click)="openDialog(item)"
+  >
+    <div class="photo">
+      <img [src]="item.image" alt="{{ item.name }}" class="product-image" />
+    </div>
+    <h3 class="product-title">{{ item.name }}</h3>
+    <button
+      mat-icon-button
+      aria-label="Add"
+      (click)="openModalWindow('edit', item); $event.stopPropagation()"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card>
+</div>
+<button mat-icon-button (click)="onBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

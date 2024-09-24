@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{ data.name }}</h2>
+<mat-dialog-content>
+  <p><strong>Weight:</strong> {{ data.weight }}</p>
+  <p><strong>Price:</strong> {{ data.price }} UAH</p>
+  <p><strong>Ingredients:</strong> {{ data.ingredients }}</p>
+</mat-dialog-content>
+<button mat-icon-button (click)="closeModalDialog()">
+  <mat-icon>close</mat-icon>
+</button>

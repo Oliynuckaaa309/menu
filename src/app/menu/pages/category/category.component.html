@@ -1,0 +1,12 @@
+<main>
+  <div class="categories">
+    <mat-card class="category-items" *ngFor="let category of categories">
+      <div>
+        <a href="" [routerLink]="['/category', category.name]">
+          <img src="{{ category.image }}" alt="{{ category.name }}" />
+          <h3>{{ capitalizeFirstLetter(category.name) }}</h3>
+        </a>
+      </div>
+    </mat-card>
+  </div>
+</main>
