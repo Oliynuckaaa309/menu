@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { MaterialModule } from '../../../shared/material.module';
 import { DataService } from '../../../core/services/data.service';
 import { Product } from '../../../shared/interface';
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../../shared/material.module';
-import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialogs/dialog/dialog.component';
 import { EditorComponent } from '../../dialogs/editor/editor.component';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +16,7 @@ import { EditorComponent } from '../../dialogs/editor/editor.component';
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
   selectedCategoryName!: string;
   products: Product[] = [];
   constructor(
@@ -29,6 +30,7 @@ export class ProductsComponent {
       this.selectedCategoryName = params['name'];
       this.dataService
         .getCategoryByName(this.selectedCategoryName)
+        .pipe(take(1))
         .subscribe((data) => {
           this.products = data;
         });

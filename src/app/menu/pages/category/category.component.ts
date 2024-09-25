@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../../shared/material.module';
 import { DataService } from '../../../core/services/data.service';
-import { Category, Product } from '../../../shared/interface';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { EditorComponent } from '../../dialogs/editor/editor.component';
+import { Category } from '../../../shared/interface';
+import { take } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-category',
@@ -14,14 +15,13 @@ import { EditorComponent } from '../../dialogs/editor/editor.component';
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
 })
-export class CategoryComponent {
+export class CategoryComponent implements OnInit {
   categories: Category[] = [];
   constructor(
     private dataService: DataService,
-    private dialog: MatDialog,
   ) {}
   ngOnInit() {
-    this.dataService.getCategories().subscribe((data) => {
+    this.dataService.getCategories().pipe(take(1)).subscribe((data) => {
       this.categories = data;
     });
   }

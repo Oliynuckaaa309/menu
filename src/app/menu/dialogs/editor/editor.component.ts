@@ -1,5 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MaterialModule } from '../../../shared/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
@@ -7,8 +9,8 @@ import {
   ProductModalWindowData,
 } from '../../../shared/interface';
 import { DataService } from '../../../core/services/data.service';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { take } from 'rxjs';
+
 
 @Component({
   selector: 'app-editor',
@@ -17,8 +19,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './editor.component.html',
   styleUrl: './editor.component.css',
 })
-export class EditorComponent {
-  categoryDishForm: FormGroup;
+export class EditorComponent implements OnInit {
+  categoryDishForm:FormGroup = this.fb.group({
+    name: ['', Validators.required],
+    weight: ['', [Validators.required, Validators.min(1)]],
+    price: ['', Validators.required],
+    ingredients: ['', Validators.required],
+    image: ['', Validators.required],
+  });
   isEdit: boolean;
 
   constructor(
@@ -28,18 +36,13 @@ export class EditorComponent {
     private dataService: DataService,
   ) {
     this.isEdit = data.isEdit;
-    this.categoryDishForm = this.fb.group({
-      name: ['', Validators.required],
-      weight: ['', [Validators.required, Validators.min(1)]],
-      price: ['', Validators.required],
-      ingredients: ['', Validators.required],
-      image: ['', Validators.required],
-    });
+   
   }
   ngOnInit(): void {
     if (this.isEdit && this.data.item) {
       this.categoryDishForm.patchValue(this.data.item);
     }
+ 
   }
 
   onSubmit(): void {
@@ -53,7 +56,7 @@ export class EditorComponent {
           ...productData,
         };
 
-        this.dataService.updateProduct(updatedDish).subscribe({
+        this.dataService.updateProduct(updatedDish).pipe(take(1)).subscribe({
           next: (result) => {
             this.dialogRef.close(result);
           },
@@ -65,7 +68,7 @@ export class EditorComponent {
       } else {
         const newDish: Product = productData;
         newDish.categoryName = this.data.selectedCategoryName!        
-        this.dataService.addProducts(newDish, this.data.selectedCategoryName!).subscribe({
+        this.dataService.addProducts(newDish, this.data.selectedCategoryName!).pipe(take(1)).subscribe({
           next: (result) => this.dialogRef.close(result),
           error: (error) => console.error('Error adding product:', error),
         });

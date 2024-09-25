@@ -10,7 +10,7 @@ import { MaterialModule } from '../../../shared/material.module';
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.css',
 })
-export class DialogComponent {
+export class DialogComponent  {
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Product,

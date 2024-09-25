@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../../shared/material.module';
 import { DataService } from '../../services/data.service';
 import { Product } from '../../../shared/interface';
-import { CommonModule } from '@angular/common';
+import { take } from 'rxjs';
+
 
 @Component({
   selector: 'app-header',
@@ -11,13 +13,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   allProducts: Product[] = [];
   filteredProducts: Product[] = [];
   constructor(private dataService: DataService) {}
   ngOnInit() {
-    this.dataService
+   this.dataService
       .getAllProducts()
+      .pipe(take(1))
       .subscribe((data) => (this.allProducts = data));
   }
   onSearch(eventSearch: Event) {
@@ -32,4 +35,5 @@ export class HeaderComponent {
       );
     }
   }
+ 
 }
