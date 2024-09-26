@@ -9,7 +9,8 @@
     "test": "ng test",
     "serve:ssr:menu": "node dist/menu/server/server.mjs",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "server-json": "npx json-server src/app/db.json"
   },
   "private": true,
   "dependencies": {
