@@ -2,8 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../../shared/material.module';
 import { DataService } from '../../services/data.service';
-import { Product } from '../../../shared/interface';
+import { Product, User } from '../../../shared/interface';
 import { take } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthorizationComponent } from '../../../menu/pages/authorization/authorization.component';
+import { AuthService } from '../../services/auth/auth.service';
 
 
 @Component({
@@ -16,12 +19,27 @@ import { take } from 'rxjs';
 export class HeaderComponent implements OnInit {
   allProducts: Product[] = [];
   filteredProducts: Product[] = [];
-  constructor(private dataService: DataService) {}
+  userName: string | null = null;
+  constructor(private dataService: DataService,
+    private dialog: MatDialog,
+    private authService: AuthService) { }
   ngOnInit() {
-   this.dataService
+    this.dataService
       .getAllProducts()
       .pipe(take(1))
       .subscribe((data) => (this.allProducts = data));
+    this.authService.userName$.subscribe(data => {
+       this.userName = data as string;
+      const user= localStorage.getItem('currentUser');
+      if(user){
+        const currentUser = JSON.parse(user);
+        this.userName = currentUser.firstName;
+      }
+
+    });
+   
+
+   
   }
   onSearch(eventSearch: Event) {
     const searchTerm = (
@@ -35,5 +53,16 @@ export class HeaderComponent implements OnInit {
       );
     }
   }
- 
+  showAuthorizationWindow(): void {
+    this.dialog.open(AuthorizationComponent, {
+      maxHeight: '65%',
+      width: '35%'
+    })
+  }
+  logOut(): void {
+    localStorage.removeItem('currentUser');
+    this.authService.logOut();
+   
+  }
+
 }

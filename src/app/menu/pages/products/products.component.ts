@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { MaterialModule } from '../../../shared/material.module';
 import { DataService } from '../../../core/services/data.service';
-import { Product } from '../../../shared/interface';
+import { Product, User } from '../../../shared/interface';
 import { DialogComponent } from '../../dialogs/dialog/dialog.component';
 import { EditorComponent } from '../../dialogs/editor/editor.component';
 import { take } from 'rxjs';
@@ -19,6 +19,7 @@ import { take } from 'rxjs';
 export class ProductsComponent implements OnInit {
   selectedCategoryName!: string;
   products: Product[] = [];
+  isAdmin!:boolean;
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
@@ -38,6 +39,12 @@ export class ProductsComponent implements OnInit {
     this.dataService.products$.subscribe((products) => {
       this.products = products;
     });
+    const userObject = localStorage.getItem('currentUser');
+    let userStatus: User; 
+    if (userObject) {
+      userStatus = JSON.parse(userObject);
+      this.isAdmin=userStatus.isAdmin
+    } 
   }
   openDialog(item: Product) {
     this.dialog.open(DialogComponent, {

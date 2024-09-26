@@ -1,9 +1,8 @@
-<button
+<button *ngIf="isAdmin"
   mat-icon-button
   aria-label="Add"
   (click)="openModalWindow('add')"
-  id="add"
->
+  id="add">
   <mat-icon>add</mat-icon>
 </button>
 <div class="products">
@@ -16,7 +15,7 @@
       <img [src]="item.image" alt="{{ item.name }}" class="product-image" />
     </div>
     <h3 class="product-title">{{ item.name }}</h3>
-    <button
+    <button *ngIf="isAdmin"
       mat-icon-button
       aria-label="Add"
       (click)="openModalWindow('edit', item); $event.stopPropagation()"

@@ -18,3 +18,17 @@ export interface ProductModalWindowData {
   selectedCategoryName?: string;
   item: Product;
 }
+export interface User{
+  firstName:string;
+  lastName:string;
+  email:string;
+  password:string;
+  isAdmin: boolean;
+
+
+}
+export interface LoginResponse {
+  success: boolean;
+  user: User;
+}
+

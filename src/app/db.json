@@ -233,5 +233,39 @@
       "ingredients": "htrhbrt",
       "image": "hbthbt"
     }
+  ],
+  "users": [
+    {
+      "id": "6ae7",
+      "firstName": "gtghtr5",
+      "lastName": "htrhgtr",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "t5r",
+      "isAdmin": "false"
+    },
+    {
+      "id": "e037",
+      "firstName": "admin",
+      "lastName": "admin",
+      "email": "admin@gmail.com",
+      "password": "11111",
+      "isAdmin": "true"
+    },
+    {
+      "id": "1182",
+      "firstName": "gtrgtrg",
+      "lastName": "trhtrht",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "gtrghtrh",
+      "isAdmin": "false"
+    },
+    {
+      "id": "ea92",
+      "isAdmin": false,
+      "firstName": "gtrgtr",
+      "lastName": "Oliinyk",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "gtrgtr"
+    }
   ]
 }

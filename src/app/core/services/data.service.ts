@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, forkJoin, map, mergeMap, Observable, tap } from 'rxjs';
-import { Category, Product } from '../../shared/interface';
+import { Category, Product, User } from '../../shared/interface';
 import { apiKey } from '../../../enviroments/environment';
 @Injectable({
   providedIn: 'root',
@@ -23,6 +23,9 @@ export class DataService {
         this.loadProducts(dish.categoryName);
       }),
     );
+  }
+  addUser(user:User):Observable<User>{
+    return this.http.post<User>(`${apiKey}/users`, user);
   }
   updateProduct(dish: Product): Observable<Product> {
     return this.http

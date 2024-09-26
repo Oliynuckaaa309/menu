@@ -42,3 +42,11 @@ input {
 .product-title {
   height: 35px;
 }
+.icon-group{
+  width: 15%;
+  display: flex;
+}
+.btn-log{
+  height: 70%;
+  margin: 20px 10px;
+}
