@@ -24,11 +24,17 @@ export interface User{
   email:string;
   password:string;
   isAdmin: boolean;
-
-
 }
 export interface LoginResponse {
   success: boolean;
   user: User;
+}
+export interface ProductsState{
+  products: Product[];
+  error: string|null;
+}
+export interface CategoriesState {
+  categories:Category[],
+  error: string|null;
 }
 

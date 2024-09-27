@@ -12,12 +12,15 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
   getCategories(): Observable<Category[]> {
+    console.log("getCategories");
     return this.http.get<Category[]>(`${apiKey}/categories`);
   }
   getCategoryByName(name: string): Observable<Product[]> {
+    console.log("getCategoryByName");
     return this.http.get<Product[]>(`${apiKey}/${name}`);
   }
   addProducts(dish: Product, category: string): Observable<Product> {
+    console.log("addProducts");
     return this.http.post<Product>(`${apiKey}/${category}`, dish).pipe(
       tap(() => {
         this.loadProducts(dish.categoryName);
@@ -48,7 +51,7 @@ export class DataService {
       })
     );
   }
-  
+
 
   loadProducts(category: string): void {
     this.http

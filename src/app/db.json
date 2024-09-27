@@ -266,6 +266,30 @@
       "lastName": "Oliinyk",
       "email": "oliynuchkaaa@gmail.com",
       "password": "gtrgtr"
+    },
+    {
+      "id": "894a",
+      "isAdmin": false,
+      "firstName": "fregre",
+      "lastName": "gregvre",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "regerge"
+    },
+    {
+      "id": "79d5",
+      "isAdmin": false,
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "91ee",
+      "isAdmin": false,
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": ""
     }
   ]
 }
