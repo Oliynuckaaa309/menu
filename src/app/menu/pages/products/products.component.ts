@@ -4,14 +4,15 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { MaterialModule } from '../../../shared/material.module';
 import { Store } from '@ngrx/store';
-import { DataService } from '../../../core/services/data.service';
-import { Product, User } from '../../../shared/interface';
+import {Observable} from "rxjs";
+import {MatIconButton} from "@angular/material/button";
+import { Product,  } from '../../../shared/interface';
 import { DialogComponent } from '../../dialogs/dialog/dialog.component';
 import { EditorComponent } from '../../dialogs/editor/editor.component';
 import {selectAllProducts } from '../../../../store/products/products.selector';
-import { loadProductsByCategory} from '../../../../store/products/products.actions';
-import {Observable} from "rxjs";
-import {MatIconButton} from "@angular/material/button";
+import {loadProductsByCategory} from '../../../../store/products/products.actions';
+import {AppState} from "../../../../store/store.index";
+import {selectedUserName} from "../../../../store/users/users.selectors";
 
 @Component({
   selector: 'app-products',
@@ -22,74 +23,30 @@ import {MatIconButton} from "@angular/material/button";
 })
 export class ProductsComponent implements OnInit {
   selectedCategoryName!: string;
-
-  isAdmin!:boolean;
+  isAdmin!:boolean | undefined;
   products$!: Observable<Product[]>;
-
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService,
     private dialog: MatDialog,
     private router: Router,
-    private store: Store
+    private store: Store<AppState>
   ) {
-
   }
   ngOnInit() {
-
-    //  this.store.dispatch(loadProducts());
-    // products=this.store.select(selectAllProducts).subscribe(products => {
-    //   this.products=products
-    // });
       this.route.params.subscribe((params) => {
       this.selectedCategoryName = params['name'];
-      // this.store.dispatch(loadProductsByCategory({ categoryName: this.selectedCategoryName }));
-        console.log('Action dispatched');
-      this.products$= this.store.select(selectAllProducts);
+       this.store.dispatch(loadProductsByCategory({ categoryName: this.selectedCategoryName }));
+       this.products$= this.store.select(selectAllProducts);
 
-       // this.dataService
-       //  .getCategoryByName(this.selectedCategoryName)
-       //   .pipe(take(1))
-       //  .subscribe((data) => {
-       //     this.products = data;
-       //
-       //   });
-      // this.store.dispatch(loadProductsByCategory({ categoryName: this.selectedCategoryName }));
-      // this.store.select(selectAllProducts).subscribe(products => {
-      //   this.products = products;
-      //
-      // })
-      // this.store.select(selectAllProducts).subscribe(state => {
-      //   console.log(state)
-      //   if (state) {
-      //     if ("products" in state) {
-      //       // this.products = state.products;
-      //       console.log(this.products)
-      //     }
-      //   } else {
-      //     console.log('Products are undefined');
-      //   }
-      // });
-
-
-
-    });
-    // this.dataService.products$.subscribe((products) => {
-    //   this.products = products;
-    // });
-
-
-    const userObject = localStorage.getItem('currentUser');
-    let userStatus: User;
-    if (userObject) {
-      userStatus = JSON.parse(userObject);
-      this.isAdmin=userStatus.isAdmin
-    }
+     });
+      this.store.select(selectedUserName).subscribe(users => {
+        this.isAdmin= users?.isAdmin
+      })
   }
   openDialog(item: Product) {
     this.dialog.open(DialogComponent, {
-      width: '30%',
-      height: '35%',
+      minWidth: '30%',
+      minHeight: '35%',
       data: item,
     });
   }
@@ -99,8 +56,8 @@ export class ProductsComponent implements OnInit {
   openModalWindow(action: string, item?: Product): void {
     const isEdit = action === 'edit';
      this.dialog.open(EditorComponent, {
-      width: '35%',
-      height: '50%',
+      width: '50%',
+      minHeight: '50%',
       data: isEdit
         ? { item: item, isEdit: true }
         : { item: null, isEdit: false, selectedCategoryName: this.selectedCategoryName },

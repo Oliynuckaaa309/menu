@@ -20,8 +20,9 @@ import {CategoriesEffects} from "../../store/categories/categories.effects";
     ProductsComponent,
     DialogComponent,
     EditorComponent,
-    StoreModule.forRoot({products: productsReducer, categories: categoriesReducer}),
-    EffectsModule.forRoot([CategoriesEffects])],
+    // StoreModule.forRoot({products: productsReducer, categories: categoriesReducer}),
+    // EffectsModule.forRoot([CategoriesEffects])
+    ],
   exports: [
     CommonModule,
     HttpClientModule,

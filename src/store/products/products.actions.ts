@@ -8,3 +8,12 @@ export const loadProductsByCategory = createAction(
 );
 export const loadProductsSuccess = createAction('[Products] Load Products Success', props<{ products: Product[] }>());
 export const loadProductsFailed = createAction('[Products] Load Products Failed', props<{error:string}>());
+export const createProduct= createAction('[Products] Create Product', props<{product:Product, category:string} >());
+export const addProductSuccess = createAction(
+  '[Products] Add Product Success',
+  props<{ product: Product }>()
+);
+export const updateProduct=createAction('[Products] Update Product',props<{ product: Product }>());
+export const editProductSuccess=createAction('[Products] Edit Product', props<{product: Product}>())
+export const loadAllProducts=createAction('[AllProducts] Load All Products]');
+export const loadAllProductsSuccess=createAction('[Products]', props<{products: Product[]}>());

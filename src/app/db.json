@@ -27,16 +27,7 @@
       "categoryName": "sets",
       "name": "Philadelphia Set",
       "weight": "800g",
-      "price": 129,
-      "ingredients": "Salmon, Avocado, Philadelphia Cheese, Rice, Nori, Soy Sauce",
-      "image": "/assets/images/imgonline-com-ua-compressed-gqugtbdvryaongv-scaled.jpg"
-    },
-    {
-      "id": "6",
-      "categoryName": "sets",
-      "name": "Philadelphia Set",
-      "weight": "800g",
-      "price": 190,
+      "price": 1298,
       "ingredients": "Salmon, Avocado, Philadelphia Cheese, Rice, Nori, Soy Sauce",
       "image": "/assets/images/imgonline-com-ua-compressed-gqugtbdvryaongv-scaled.jpg"
     },
@@ -156,6 +147,78 @@
       "price": 5,
       "ingredients": "gththt",
       "image": "ththth"
+    },
+    {
+      "id": "4f7e",
+      "name": "gtgtr",
+      "weight": "trbgh",
+      "price": 5,
+      "ingredients": "bhtrbtgr",
+      "image": "btgbtg",
+      "categoryName": "rolls"
+    },
+    {
+      "id": "01c1",
+      "name": "bgbgftbh",
+      "weight": "btgbntg",
+      "price": 555,
+      "ingredients": "bgtnbth",
+      "image": "ntht",
+      "categoryName": "rolls"
+    },
+    {
+      "id": "0a3d",
+      "name": "gregrtf",
+      "weight": "grtgrft",
+      "price": 4,
+      "ingredients": "grgrt",
+      "image": "rtfgbrtfbgtrf",
+      "categoryName": "rolls"
+    },
+    {
+      "id": "a41e",
+      "name": "adfasdf",
+      "weight": "add",
+      "price": 3555,
+      "ingredients": "adfdaf",
+      "image": "aaaa",
+      "categoryName": "rolls"
+    },
+    {
+      "id": "e2f3",
+      "name": "hytht",
+      "weight": "htyhbty",
+      "price": 6,
+      "ingredients": "bnhnbh",
+      "image": "nbhtnbht",
+      "categoryName": "rolls"
+    },
+    {
+      "id": "10b6",
+      "name": "qqqqq",
+      "weight": "w232",
+      "price": 33345,
+      "ingredients": "eeeee",
+      "image": "q",
+      "categoryName": "rolls"
+    },
+    {
+      "id": "d013",
+      "name": "yytyt",
+      "weight": "tytyty",
+      "price": 55555,
+      "ingredients": "tytytyt",
+      "image": "hhhh",
+      "categoryName": "rolls"
+    },
+    {
+      "id": "bb6a",
+      "name": "ftgvfrtbvr",
+      "weight": "brgtbrgt",
+      "price": 5,
+      "ingredients": "bgfbf",
+      "image": "bfgb",
+      "categoryName": "rolls"
     }
   ],
   "sauces": [
@@ -214,24 +277,6 @@
       "ingredients": "100% Fresh Orange Juice",
       "image": "/assets/images/sandora-apelsyn.png",
       "categoryName": "drinks"
-    },
-    {
-      "id": "7763",
-      "categoryName": "drinks",
-      "name": "fdvfd",
-      "weight": "vfdv fd",
-      "price": 4,
-      "ingredients": "trfgr",
-      "image": "rtfgr"
-    },
-    {
-      "id": "2819",
-      "categoryName": "drinks",
-      "name": "fgf",
-      "weight": "fgbf",
-      "price": 5,
-      "ingredients": "htrhbrt",
-      "image": "hbthbt"
     }
   ],
   "users": [
@@ -252,44 +297,68 @@
       "isAdmin": "true"
     },
     {
-      "id": "1182",
-      "firstName": "gtrgtrg",
-      "lastName": "trhtrht",
+      "id": "dd99",
+      "isAdmin": false,
+      "firstName": "grtgrtf",
+      "lastName": "trhtrh",
       "email": "oliynuchkaaa@gmail.com",
-      "password": "gtrghtrh",
-      "isAdmin": "false"
+      "password": "htrhtr"
     },
     {
-      "id": "ea92",
+      "id": "a42c",
       "isAdmin": false,
-      "firstName": "gtrgtr",
-      "lastName": "Oliinyk",
-      "email": "oliynuchkaaa@gmail.com",
-      "password": "gtrgtr"
-    },
-    {
-      "id": "894a",
-      "isAdmin": false,
-      "firstName": "fregre",
-      "lastName": "gregvre",
-      "email": "oliynuchkaaa@gmail.com",
-      "password": "regerge"
-    },
-    {
-      "id": "79d5",
-      "isAdmin": false,
-      "firstName": "",
-      "lastName": "",
-      "email": "",
+      "firstName": "hbhbtrhb",
+      "lastName": "htyhty",
+      "email": "hythtyh",
       "password": ""
     },
     {
-      "id": "91ee",
+      "id": "4ab3",
       "isAdmin": false,
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "password": ""
+      "firstName": "bgtbt",
+      "lastName": "btgbh",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "btgbtgbgt"
+    },
+    {
+      "id": "01a3",
+      "isAdmin": false,
+      "firstName": "hyrthtr",
+      "lastName": "trhtr",
+      "email": "hthtrhtr@gmail.com",
+      "password": "htrhtr"
+    },
+    {
+      "id": "16cd",
+      "isAdmin": false,
+      "firstName": "gtrgr",
+      "lastName": "trhbtrh",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "thtrhtr"
+    },
+    {
+      "id": "7da2",
+      "isAdmin": false,
+      "firstName": "huihui",
+      "lastName": "bghjvhg",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "frfrefr"
+    },
+    {
+      "id": "d7b2",
+      "isAdmin": false,
+      "firstName": "nhgngh",
+      "lastName": "nhgnhg",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "ngn"
+    },
+    {
+      "id": "8496",
+      "isAdmin": false,
+      "firstName": "пкаеп",
+      "lastName": "репреапк",
+      "email": "oliynuchkaaa@gmail.com",
+      "password": "реаприаеп"
     }
   ]
 }

@@ -16,26 +16,16 @@ import {AppState} from "../../../../store/store.index";
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
 })
-export class CategoryComponent  {
+export class CategoryComponent implements OnInit{
    categories$!: Observable<Category[]>;
-
-
   constructor(
-    private store: Store<{categories: Category[]}>
+    private store: Store<AppState>
   ) {
-     // this.store.dispatch(loadCategories());
-    // this.store.select().subscribe(test => console.log(test));
-    // this.store.pipe(select(selectAllCategories)).subscribe(test => console.log(test));
-    this.store.dispatch(loadCategories());
-     //this.store(select(selectAllCategories)).subscribe(test => console.log(test));
-    // this.store.dispatch(loadCategories());
-
-    // this.categories$ = this.store.pipe(select(categorySelector));
-    // this.isLoading$ = this.store.pipe(select(isLoadingSelector));
-     // this.categories$= this.store.select('categories'));
   }
-
-
+  ngOnInit(): void {
+    this.store.dispatch(loadCategories());
+    this.categories$ = this.store.select(selectAllCategories);
+  }
   capitalizeFirstLetter(string: string): string {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
   }

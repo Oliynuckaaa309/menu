@@ -2,9 +2,9 @@
     <mat-dialog-content>
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>First Name</mat-label>
-      <input matInput 
+      <input matInput
       formControlName="firstName"
-       placeholder="Enter first name" 
+       placeholder="Enter first name"
        type="tet"/>
     </mat-form-field>
 
@@ -35,13 +35,13 @@
           type="password"
         />
       </mat-form-field>
-     <span class="login-link" (click)="loginUser()" >Already have an account?</span> 
-     <div><button 
+     <span class="login-link" (click)="loginUser()" >Already have an account?</span>
+     <div><button
         mat-button
         class="btn"
         (click)="closeWindow()" >Cancel</button>
-        <button mat-raised-button class="btn"  type="submit" [disabled]="usersForm.invalid"> Create </button></div>
-      
+        <button mat-raised-button class="btn" (click)="onSubmit1()" type="submit" [disabled]="usersForm.invalid"> Create </button></div>
+
     </mat-dialog-content>
 </form>
 <form [formGroup]="authForm" (ngSubmit)="onSubmitUserLogIn()" *ngIf="isLoggedOut">
@@ -58,10 +58,10 @@
              formControlName="password" >
       </mat-form-field>
       <p class="error">{{errorMessage}}</p>
-      <span class="login-link" (click)="linkToRegisterForm()">No account yet?</span> 
+      <span class="login-link" (click)="linkToRegisterForm()">No account yet?</span>
       <button mat-button class="btn" (click)="closeWindow()" >Cancel</button>
-      <button mat-button class="btn" type="submit" [disabled]="authForm.invalid"  >Log in to Account</button>
+      <button mat-button class="btn" (click)="onSubmit1()" type="submit" [disabled]="authForm.invalid"  >Log in to Account</button>
     </mat-dialog-content>
 </form>
 
-    
+

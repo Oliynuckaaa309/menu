@@ -7,37 +7,21 @@ import { apiKey } from '../../../enviroments/environment';
   providedIn: 'root',
 })
 export class DataService {
-  private productsSubject = new BehaviorSubject<Product[]>([]);
-  products$ = this.productsSubject.asObservable();
-
   constructor(private http: HttpClient) {}
   getCategories(): Observable<Category[]> {
-    console.log("getCategories");
     return this.http.get<Category[]>(`${apiKey}/categories`);
   }
   getCategoryByName(name: string): Observable<Product[]> {
-    console.log("getCategoryByName");
     return this.http.get<Product[]>(`${apiKey}/${name}`);
   }
   addProducts(dish: Product, category: string): Observable<Product> {
-    console.log("addProducts");
-    return this.http.post<Product>(`${apiKey}/${category}`, dish).pipe(
-      tap(() => {
-        this.loadProducts(dish.categoryName);
-      }),
-    );
+    return this.http.post<Product>(`${apiKey}/${category}`, dish);
+  }
+  updateProduct(dish: Product): Observable<Product> {
+    return this.http.put<Product>(`${apiKey}/${dish.categoryName}/${dish.id}`, dish)
   }
   addUser(user:User):Observable<User>{
     return this.http.post<User>(`${apiKey}/users`, user);
-  }
-  updateProduct(dish: Product): Observable<Product> {
-    return this.http
-      .put<Product>(`${apiKey}/${dish.categoryName}/${dish.id}`, dish)
-      .pipe(
-        tap(() => {
-          this.loadProducts(dish.categoryName);
-        }),
-      );
   }
   getAllProducts(): Observable<Product[]> {
     return forkJoin({
@@ -47,17 +31,9 @@ export class DataService {
       drinks: this.http.get<Product[]>(`${apiKey}/drinks`)
     }).pipe(
       map(({ sets, rolls, sauces, drinks }) => {
+        console.log("all products retrieved")
         return [...sets, ...rolls, ...sauces, ...drinks];
       })
     );
-  }
-
-
-  loadProducts(category: string): void {
-    this.http
-      .get<Product[]>(`${apiKey}/${category}`)
-      .subscribe((products) => {
-        this.productsSubject.next(products);
-      });
   }
 }

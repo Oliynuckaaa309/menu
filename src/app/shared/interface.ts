@@ -37,4 +37,10 @@ export interface CategoriesState {
   categories:Category[],
   error: string|null;
 }
+export interface UserState {
+  users:User[],
+  error: string|null;
+  currentUser: User | null;
+  isAuthenticated: boolean;
+}
 

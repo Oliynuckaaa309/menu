@@ -8,12 +8,13 @@ export const initialState: CategoriesState = {
   categories: [],
   error: null,
 };
-
+export const scoreboardFeatureKey:string = 'categories';
 export const categoriesReducer = createReducer(
   initialState,
   on(loadCategoriesSuccess, (state, { categories }) => ({
     ...state,
     categories,
+
   })),
   on(loadCategoriesFailed, (state, { error }) => ({
     ...state,

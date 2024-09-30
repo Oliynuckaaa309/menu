@@ -8,10 +8,9 @@ import {
   Product,
   ProductModalWindowData,
 } from '../../../shared/interface';
-import { DataService } from '../../../core/services/data.service';
-import { take } from 'rxjs';
-
-
+import {Store} from "@ngrx/store";
+import {AppState} from "../../../../store/store.index";
+import {createProduct, updateProduct} from "../../../../store/products/products.actions";
 @Component({
   selector: 'app-editor',
   standalone: true,
@@ -28,23 +27,19 @@ export class EditorComponent implements OnInit {
     image: ['', Validators.required],
   });
   isEdit: boolean;
-
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<EditorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ProductModalWindowData,
-    private dataService: DataService,
+    private store: Store<AppState>
   ) {
     this.isEdit = data.isEdit;
-   
   }
   ngOnInit(): void {
     if (this.isEdit && this.data.item) {
       this.categoryDishForm.patchValue(this.data.item);
     }
- 
   }
-
   onSubmit(): void {
     let updatedDish: Product;
     if (this.categoryDishForm.valid) {
@@ -55,27 +50,16 @@ export class EditorComponent implements OnInit {
           categoryName: this.data.item.categoryName,
           ...productData,
         };
-
-        this.dataService.updateProduct(updatedDish).pipe(take(1)).subscribe({
-          next: (result) => {
-            this.dialogRef.close(result);
-          },
-
-          error: (error) => {
-            console.error('Error updating product:', error);
-          },
-        });
-      } else {
+        this.store.dispatch(updateProduct({product: updatedDish}));
+        this.dialogRef.close();
+       } else {
         const newDish: Product = productData;
-        newDish.categoryName = this.data.selectedCategoryName!        
-        this.dataService.addProducts(newDish, this.data.selectedCategoryName!).pipe(take(1)).subscribe({
-          next: (result) => this.dialogRef.close(result),
-          error: (error) => console.error('Error adding product:', error),
-        });
+        newDish.categoryName = this.data.selectedCategoryName!;
+        this.store.dispatch(createProduct({product: newDish, category: newDish.categoryName}));
+        this.dialogRef.close();
       }
     }
   }
-
   onCancel(): void {
     this.dialogRef.close();
   }

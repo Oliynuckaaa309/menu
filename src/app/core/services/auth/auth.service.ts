@@ -22,14 +22,13 @@ userName$= this.userNameSubject.asObservable();
       map(users => {
         const user = users.find(u => u.email === email && u.password === password);
         if (user) {
-          return { success: true, user }; 
-        } 
-       
+          return { success: true, user };
+        }
         else {
           throw new Error('Invalid credentials');
         }
       })
     );
- 
+
   }
 }
