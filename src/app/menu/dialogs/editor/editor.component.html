@@ -1,8 +1,7 @@
 <h2 mat-dialog-title>{{ isEdit ? 'Edit' : 'Add' }} Dish</h2>
 
 <mat-dialog-content>
-  <form [formGroup]="categoryDishForm" class="form" (ngSubmit)="onSubmit()">
-
+  <form [formGroup]="categoryDishForm" class="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Dish Name</mat-label>
       <input matInput formControlName="name" placeholder="Enter dish name" />
@@ -38,7 +37,9 @@
 
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Image URL</mat-label>
-      <input matInput formControlName="image" placeholder="Enter image URL" />
+<!--      <input matInput  formControlName="image" placeholder="Enter image URL"   />-->
+      <ngx-mat-file-input formControlName="image" accept="image/*" >
+      </ngx-mat-file-input>
     </mat-form-field>
   </form>
 </mat-dialog-content>

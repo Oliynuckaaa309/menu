@@ -9,7 +9,7 @@ export interface Product {
   weight: string;
   price: number;
   ingredients: string;
-  image: string;
+  image:string;
   categoryName: string;
 }
 
@@ -19,14 +19,14 @@ export interface ProductModalWindowData {
   item: Product;
 }
 export interface User{
-  firstName:string;
-  lastName:string;
+  firstname:string;
+  lastname:string;
   email:string;
   password:string;
-  isAdmin: boolean;
+  isadmin: boolean;
 }
 export interface LoginResponse {
-  success: boolean;
+  token: string;
   user: User;
 }
 export interface ProductsState{

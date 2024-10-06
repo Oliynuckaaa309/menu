@@ -1,4 +1,4 @@
-import {Component,  inject,} from '@angular/core';
+import {Component, inject, OnInit,} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -9,8 +9,9 @@ import {User} from '../../../shared/interface';
 import {Store} from "@ngrx/store";
 import {AuthService} from '../../../core/services/auth/auth.service';
 import {AppState} from "../../../../store/store.index";
-import {loginUser, registerUser} from "../../../../store/users/users.actions";
+import {loginUser, loginUserSuccess, registerUser} from "../../../../store/users/users.actions";
 import {selectedUserName, } from "../../../../store/users/users.selectors";
+import {takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-authorization',
@@ -19,7 +20,7 @@ import {selectedUserName, } from "../../../../store/users/users.selectors";
   templateUrl: './authorization.component.html',
   styleUrl: './authorization.component.css'
 })
-export class AuthorizationComponent  {
+export class AuthorizationComponent {
   isLoggedOut: boolean = false;
   isClickAddButton !:boolean;
   private snackBar = inject(MatSnackBar);
@@ -46,21 +47,37 @@ export class AuthorizationComponent  {
     this.isLoggedOut = true;
   }
 
+
   onSubmitUserLogIn() {
     const {email, password} = this.authForm.value;
     this.store.dispatch(loginUser({email, password}))
+
+    // this.dialogRef.close();
+    // this.snackBar.open('Login successful!', 'Close', {
+    //   duration: 5000,
+    //   horizontalPosition: 'center',
+    //   verticalPosition: 'top',
+    // });
+
+      //     const user = localStorage.getItem('currentUser');
+      //     if (user) {
+      //       const currentUser = JSON.parse(user);
+      //        this.userName = currentUser.firstName;
+      //       console.log(currentUser.firstName);
+      //     }
    this.store.select(selectedUserName).subscribe(user=>{
      if(user){
-       localStorage.setItem('currentUser', JSON.stringify(user));
          this.authService.registerUser(user as User);
+         this.dialogRef.close();
          this.snackBar.open('Login successful!', 'Close', {
          duration: 5000,
          horizontalPosition: 'center',
          verticalPosition: 'top',
        });
-       this.dialogRef.close();
+
      }
-   })
+   }
+   )
   }
   closeWindow(): void {
     this.dialogRef.close();

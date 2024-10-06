@@ -41,8 +41,8 @@ export class ProductsEffects {
   createProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(createProduct),
-      exhaustMap(({ product, category }) =>
-        this.dataService.addProducts(product, category).pipe(
+      exhaustMap(({ product }) =>
+        this.dataService.addProducts(product).pipe(
           map((newProduct) => {
             return addProductSuccess({ product: newProduct });
           }),
@@ -53,8 +53,8 @@ export class ProductsEffects {
   updateProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(updateProduct),
-      exhaustMap(({ product }) =>
-        this.dataService.updateProduct(product).pipe(
+      exhaustMap(({ product, id }) =>
+        this.dataService.updateProduct(product, id).pipe(
           map((newProduct) => {
             return editProductSuccess({ product: newProduct });
           }),

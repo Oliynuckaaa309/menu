@@ -1,8 +1,7 @@
 import { Component,  OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../../shared/material.module';
-import { DataService } from '../../services/data.service';
-import { Product, User } from '../../../shared/interface';
+import {Product, User} from '../../../shared/interface';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthorizationComponent } from '../../../menu/pages/authorization/authorization.component';
 import { AuthService } from '../../services/auth/auth.service';
@@ -10,6 +9,7 @@ import {Store} from "@ngrx/store";
 import {AppState} from "../../../../store/store.index";
 import {loadAllProducts} from "../../../../store/products/products.actions";
 import {selectAllProducts} from "../../../../store/products/products.selector";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -20,22 +20,22 @@ import {selectAllProducts} from "../../../../store/products/products.selector";
 })
 export class HeaderComponent implements OnInit {
   filteredProducts: Product[] = [];
-  userName!:string ;
-
-  constructor(private dataService: DataService,
+  userName!:string | undefined ;
+  private unsubscribe$ = new Subject<void>();
+  constructor(
     private dialog: MatDialog,
     private authService: AuthService,
-    private store: Store<AppState>) { }
+    private store: Store<AppState>) {
+  }
   ngOnInit() {
-    this.store.dispatch(loadAllProducts());
-    this.authService.userName$.subscribe(data => {
-       this.userName = data as string;
-       const user= window.localStorage.getItem('currentUser');
-      if(user){
-        const currentUser = JSON.parse(user);
-        this.userName = currentUser.firstName;
+this.authService.userName$.subscribe(data=>this.userName = data as string);
+    const user = localStorage.getItem('currentUser');
+    if (user) {
+      const currentUser = JSON.parse(user);
+      if (currentUser.firstname) {
+        this.userName=currentUser.firstname;
       }
-    });
+    }
   }
   onSearch(eventSearch: Event) {
     const searchTerm = (
@@ -57,7 +57,6 @@ export class HeaderComponent implements OnInit {
     })
   }
   logOut(): void {
-    localStorage.removeItem('currentUser');
     this.authService.logOut();
 
   }

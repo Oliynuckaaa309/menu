@@ -9,31 +9,22 @@ import { apiKey } from '../../../enviroments/environment';
 export class DataService {
   constructor(private http: HttpClient) {}
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${apiKey}/categories`);
+    return this.http.get<Category[]>(`http://localhost:8080/categories`);
+
   }
   getCategoryByName(name: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`${apiKey}/${name}`);
+    return this.http.get<Product[]>(`${apiKey}/products?categoryName=${name}`);
   }
-  addProducts(dish: Product, category: string): Observable<Product> {
-    return this.http.post<Product>(`${apiKey}/${category}`, dish);
+  addProducts(dish: FormData): Observable<Product> {
+    return this.http.post<Product>(`${apiKey}/products`, dish);
   }
-  updateProduct(dish: Product): Observable<Product> {
-    return this.http.put<Product>(`${apiKey}/${dish.categoryName}/${dish.id}`, dish)
+  updateProduct(dish: FormData,  id: number): Observable<Product> {
+    return this.http.put<Product>(`${apiKey}/products/${id}`, dish);
   }
-  addUser(user:User):Observable<User>{
-    return this.http.post<User>(`${apiKey}/users`, user);
-  }
+  // addUser(user:User):Observable<User>{
+  //   return this.http.post<User>(`${apiKey}/users`, user);
+  // }
   getAllProducts(): Observable<Product[]> {
-    return forkJoin({
-      sets: this.http.get<Product[]>(`${apiKey}/sets`),
-      rolls: this.http.get<Product[]>(`${apiKey}/rolls`),
-      sauces: this.http.get<Product[]>(`${apiKey}/sauces`),
-      drinks: this.http.get<Product[]>(`${apiKey}/drinks`)
-    }).pipe(
-      map(({ sets, rolls, sauces, drinks }) => {
-        console.log("all products retrieved")
-        return [...sets, ...rolls, ...sauces, ...drinks];
-      })
-    );
-  }
+      return this.http.get<Product[]>(`${apiKey}/products`);
+    }
 }

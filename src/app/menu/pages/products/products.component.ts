@@ -13,7 +13,6 @@ import {selectAllProducts } from '../../../../store/products/products.selector';
 import {loadProductsByCategory} from '../../../../store/products/products.actions';
 import {AppState} from "../../../../store/store.index";
 import {selectedUserName} from "../../../../store/users/users.selectors";
-
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -40,7 +39,7 @@ export class ProductsComponent implements OnInit {
 
      });
       this.store.select(selectedUserName).subscribe(users => {
-        this.isAdmin= users?.isAdmin
+        this.isAdmin= users?.isadmin
       })
   }
   openDialog(item: Product) {
