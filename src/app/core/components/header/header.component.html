@@ -2,13 +2,13 @@
   <mat-toolbar class="app-header">
     <span class="logo">Restaurant menu </span>
     <div *ngIf="userName ; else guest" class="icon-group">
-      <p>{{userName}}</p>
+      <p>{{ userName }}</p>
       <button class="btn-log" mat-icon-button (click)="logOut()">
         <mat-icon>exit_to_app</mat-icon>
       </button>
     </div>
     <ng-template #guest>
-      <mat-icon (click)="showAuthorizationWindow()">person </mat-icon>
+      <mat-icon (click)="showAuthorizationWindow()">person</mat-icon>
     </ng-template>
   </mat-toolbar>
   <div class="search-container">
@@ -28,8 +28,9 @@
     <div>
       <mat-card-header>
         <mat-card-title class="product-title">{{
-          product.name
-        }}</mat-card-title>
+            product.name
+          }}
+        </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <img

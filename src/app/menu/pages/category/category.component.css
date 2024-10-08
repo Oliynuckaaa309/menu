@@ -5,6 +5,7 @@
   flex-wrap: nowrap;
   margin: 60px auto;
 }
+
 .category-items {
   flex: 0 1 300px;
   margin: 10px;
@@ -14,16 +15,26 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+  transition: transform 0.2s,
+  box-shadow 0.2s;
 }
+
 a {
   color: black;
   text-decoration: none;
 }
+
 button[mat-icon-button] {
   position: relative;
   top: 10px;
   left: 20px;
+}
+
+.edit-btn {
+  margin-top: -20px;
+}
+
+img {
+  max-width: 30%;
+  max-height: 30%;
 }

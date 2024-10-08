@@ -4,10 +4,9 @@ import {
   loadProductsFailed,
   createProduct,
   addProductSuccess,
-  updateProduct, editProductSuccess, loadAllProductsSuccess
+  editProductSuccess, loadAllProductsSuccess
 } from './products.actions';
 import {ProductsState} from '../../app/shared/interface';
-
 
 export const initialState: ProductsState = {
   products: [],
@@ -19,28 +18,33 @@ export const productsReducer = createReducer(
     ...state,
     products
   })),
+
   on(loadProductsFailed, (state, {error}) => ({
     ...state,
     error
   })),
-  on(createProduct, (state,{})=>({
-    ...state,
-    products:[...state.products]
+
+  on(createProduct, (state, {}) => ({
+      ...state,
+      products: [...state.products]
     })
   ),
-on(addProductSuccess, (state, { product }) => ({
-  ...state,
-  products: [...state.products, product]
-})),
-  on(editProductSuccess, (state, {product})=>({
+
+  on(addProductSuccess, (state, {product}) => ({
     ...state,
-    products:state.products.map(p=>
+    products: [...state.products, product]
+  })),
+
+  on(editProductSuccess, (state, {product}) => ({
+    ...state,
+    products: state.products.map(p =>
       p.id === product.id ? product : p)
   })),
-on(loadAllProductsSuccess, (state, {products}) => ({
-  ...state,
-  products
-})),
+
+  on(loadAllProductsSuccess, (state, {products}) => ({
+    ...state,
+    products
+  })),
 );
 
 

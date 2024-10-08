@@ -1,13 +1,25 @@
 <main>
+  <button *ngIf="isAdmin"
+          mat-icon-button
+          aria-label="Add"
+          (click)="openModalWindow('add')"
+          id="add">
+    <mat-icon>add</mat-icon>
+  </button>
   <div class="categories">
-
     <mat-card class="category-items" *ngFor="let category of (categories$ | async)">
       <div>
         <a [routerLink]="['/category', category.name]">
-          <img [src]="category.image" [alt]="category.name" />
-          <h3>{{ capitalizeFirstLetter(category.name) }}</h3>
+          <img [src]="category.image" [alt]="category.name"/>
+          <h3>{{ category.name }} </h3>
         </a>
-
+        <button *ngIf="isAdmin"
+                (click)="openModalWindow('edit', category); $event.stopPropagation()"
+                class="edit-btn"
+                mat-icon-button
+                aria-label="Add">
+          <mat-icon>edit</mat-icon>
+        </button>
       </div>
     </mat-card>
   </div>

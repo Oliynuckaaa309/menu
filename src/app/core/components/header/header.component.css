@@ -20,7 +20,9 @@ header {
 input {
   height: 30px;
   padding: 5px;
+
 }
+
 .product-list {
   display: flex;
   flex-wrap: wrap;
@@ -35,18 +37,22 @@ input {
   flex: 0 1 200px;
   transition: transform 0.2s;
 }
+
 .product-photo {
   width: 80%;
   height: 80%;
 }
+
 .product-title {
   height: 35px;
 }
-.icon-group{
+
+.icon-group {
   width: 15%;
   display: flex;
 }
-.btn-log{
+
+.btn-log {
   height: 70%;
   margin: 20px 10px;
 }

@@ -1,9 +1,8 @@
-
-import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import {Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {exhaustMap, of} from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
-import { DataService } from '../../app/core/services/data.service';
+import {catchError, map} from 'rxjs/operators';
+import {DataService} from '../../app/core/services/data.service';
 import {
   loadProductsByCategory,
   loadProductsSuccess,
@@ -27,11 +26,9 @@ export class ProductsEffects {
         this.dataService.getCategoryByName(categoryName)
           .pipe(
             map(products => {
-              console.log('Fetched products:', products); // Додайте цей лог
               return loadProductsSuccess({products});
             }),
             catchError(error => {
-              console.error('Error fetching products:', error); // Додайте цей лог
               return of(loadProductsFailed({error}));
             })
           )
@@ -41,10 +38,10 @@ export class ProductsEffects {
   createProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(createProduct),
-      exhaustMap(({ product }) =>
+      exhaustMap(({product}) =>
         this.dataService.addProducts(product).pipe(
           map((newProduct) => {
-            return addProductSuccess({ product: newProduct });
+            return addProductSuccess({product: newProduct});
           }),
         )
       )
@@ -53,10 +50,10 @@ export class ProductsEffects {
   updateProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(updateProduct),
-      exhaustMap(({ product, id }) =>
+      exhaustMap(({product, id}) =>
         this.dataService.updateProduct(product, id).pipe(
           map((newProduct) => {
-            return editProductSuccess({ product: newProduct });
+            return editProductSuccess({product: newProduct});
           }),
         )
       )
@@ -66,16 +63,15 @@ export class ProductsEffects {
   loadAllProducts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadAllProducts),
-      exhaustMap(( ) =>
+      exhaustMap(() =>
         this.dataService.getAllProducts().pipe(
           map((products) => {
-            return loadAllProductsSuccess({ products: products});
+            return loadAllProductsSuccess({products: products});
           }),
         )
       )
     )
   );
-
 
 }
 

@@ -6,7 +6,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {
-  Product,
   ProductModalWindowData,
 } from '../../../shared/interface';
 import {Store} from "@ngrx/store";
@@ -57,14 +56,6 @@ export class EditorComponent implements OnInit {
       formData.append('ingredients', productData.ingredients);
       formData.append('image', productData.image);
       if (this.isEdit) {
-        // formData.append('id', this.data.item.id.toString());
-
-        // updatedDish = {
-        //
-        //   // id: this.data.item.id,
-        //   categoryName: this.data.item.categoryName,
-        //   ...productData,
-        // };
         this.store.dispatch(updateProduct({product:formData, id:this.data.item.id}));
         this.dialogRef.close();
       } else {

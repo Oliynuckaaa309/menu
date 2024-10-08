@@ -1,8 +1,8 @@
 <button *ngIf="isAdmin"
-  mat-icon-button
-  aria-label="Add"
-  (click)="openModalWindow('add')"
-  id="add">
+        mat-icon-button
+        aria-label="Add"
+        (click)="openModalWindow('add')"
+        id="add">
   <mat-icon>add</mat-icon>
 </button>
 <button mat-icon-button (click)="onBack()">
@@ -11,17 +11,16 @@
 <div class="products">
   <mat-card
     class="product-item"
-   *ngFor="let item of  (products$  | async)"
-    (click)="openDialog(item)"
-  >
+    *ngFor="let item of  (products$  | async)"
+    (click)="openDialog(item)">
     <div class="photo">
-      <img [src]="item.image" alt="{{ item.name }}" class="product-image" />
+      <img [src]="item.image" alt="{{ item.name }}" class="product-image"/>
     </div>
     <h3 class="product-title">{{ item.name }}</h3>
     <button *ngIf="isAdmin"
-      mat-icon-button
-      aria-label="Add"
-      (click)="openModalWindow('edit', item); $event.stopPropagation()"
+            mat-icon-button
+            aria-label="Add"
+            (click)="openModalWindow('edit', item); $event.stopPropagation()"
     >
       <mat-icon>edit</mat-icon>
     </button>

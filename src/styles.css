@@ -4,11 +4,13 @@ html,
 body {
   height: 100vh;
 }
+
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   height: 100vh;
 }
-main{
-  min-height: 50vh;
+
+main {
+  min-height: 60vh;
 }

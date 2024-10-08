@@ -1,22 +1,27 @@
-mat-form-field{
-    width: 100%;
+mat-form-field {
+  width: 100%;
 }
+
 .btn {
-    font-size: 20px;
-    border: none;
-    margin: 10px;
-    background-color: white;
-  }
-  .login-link{
-    display: block;
-    text-align: center;
-  }
-  .login-link:hover{
-   text-decoration: underline;
-  }
-  .title{
-    padding-left: 20px;
-  }
-  .error{
-    color: red;
-  }
+  font-size: 20px;
+  border: none;
+  margin: 10px;
+  background-color: white;
+}
+
+.login-link {
+  display: block;
+  text-align: center;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.title {
+  padding-left: 20px;
+}
+
+.error {
+  color: red;
+}

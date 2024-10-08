@@ -1,67 +1,83 @@
 <form [formGroup]="usersForm" class="form" (ngSubmit)="onSubmit()" *ngIf="!isLoggedOut">
-    <mat-dialog-content>
+  <mat-dialog-content>
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>First Name</mat-label>
       <input matInput
-      formControlName="firstName"
-       placeholder="Enter first name"
-       type="tet"/>
+             formControlName="firstname"
+             placeholder="Enter first name"
+             type="text"/>
     </mat-form-field>
-
+    <span *ngIf="usersForm.get('firstname')?.invalid && usersForm.get('firstname')?.touched">
+        <small>Name is required!</small>
+      </span>
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Last name</mat-label>
       <input
         matInput
-        formControlName="lastName"
+        formControlName="lastname"
         placeholder="Enter last name"
         type="text"
       />
     </mat-form-field>
+    <span *ngIf="usersForm.get('lastname')?.invalid && usersForm.get('lastname')?.touched">
+        <small>Nickname is required!</small>
+      </span>
     <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          formControlName="email"
-          placeholder="Enter your email"
-          type="email"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          placeholder="Enter your password"
-          formControlName="password"
-          type="password"
-        />
-      </mat-form-field>
-     <span class="login-link" (click)="loginUser()" >Already have an account?</span>
-     <div><button
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="Enter your email"
+        type="email"
+      />
+    </mat-form-field>
+    <span *ngIf="usersForm.get('email')?.invalid && usersForm.get('email')?.touched">
+        <small>Email is required!</small>
+      </span>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        placeholder="Enter your password"
+        formControlName="password"
+        type="password"
+      />
+    </mat-form-field>
+    <span *ngIf="usersForm.get('password')?.invalid && usersForm.get('password')?.touched">
+        <small>Password is required and must contain minimum 6 symbols!</small>
+      </span>
+    <span class="login-link" (click)="loginUser()">Already have an account?</span>
+    <div>
+      <p class="error">{{ errorForRegistration }}</p>
+      <button
         mat-button
         class="btn"
-        (click)="closeWindow()" >Cancel</button>
-        <button mat-raised-button class="btn" (click)="onSubmit1()" type="submit" [disabled]="usersForm.invalid"> Create </button></div>
+        (click)="closeWindow()">Cancel
+      </button>
+      <button mat-raised-button class="btn" type="submit" [disabled]="usersForm.invalid"> Create</button>
+    </div>
 
-    </mat-dialog-content>
+  </mat-dialog-content>
 </form>
 <form [formGroup]="authForm" (ngSubmit)="onSubmitUserLogIn()" *ngIf="isLoggedOut">
-    <h2 class="title">Login to Account</h2>
-    <mat-dialog-content>
-      <mat-form-field appearance="outline" mat-primary="white">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="pat@example.com" formControlName="email">
-      </mat-form-field>
-      <mat-form-field appearance="outline" >
-        <mat-label>Password</mat-label >
-        <input type="password" matInput
-             formControlName="password" >
-      </mat-form-field>
-      <p class="error">{{errorMessage}}</p>
-      <span class="login-link" (click)="linkToRegisterForm()">No account yet?</span>
-      <button mat-button class="btn" (click)="closeWindow()" >Cancel</button>
-      <button mat-button class="btn" (click)="onSubmit1()" type="submit" [disabled]="authForm.invalid"  >Log in to Account</button>
-    </mat-dialog-content>
+  <h2 class="title">Login to Account</h2>
+  <mat-dialog-content>
+    <mat-form-field appearance="outline" mat-primary="white">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput
+             placeholder="pat@example.com" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput
+             formControlName="password">
+    </mat-form-field>
+    <p class="error">{{ errorForLogination }}</p>
+    <span class="login-link" (click)="linkToRegisterForm()">No account yet?</span>
+    <button mat-button class="btn" (click)="closeWindow()">Cancel</button>
+    <button mat-button class="btn"  type="submit" [disabled]="authForm.invalid">Log in to Account
+    </button>
+  </mat-dialog-content>
 </form>
 
 
