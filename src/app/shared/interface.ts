@@ -21,11 +21,11 @@ export interface ProductModalWindowData {
 }
 
 export interface User {
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  isadmin: boolean;
+  isAdmin: boolean;
 }
 
 export interface LoginResponse {

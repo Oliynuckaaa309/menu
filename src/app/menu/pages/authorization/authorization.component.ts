@@ -80,7 +80,7 @@ export class AuthorizationComponent {
     let newUserChanges: User;
     const newUser = this.usersForm.value;
     newUserChanges = {
-      isadmin: false,
+      isAdmin: false,
       ...newUser
     };
 

@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   pushFirstNameEvent(user: User) {
-    this.userNameSubject.next(user.firstname);
+    this.userNameSubject.next(user.firstName);
   }
 
   addUser(user: User): Observable<User> {
@@ -33,7 +33,7 @@ export class AuthService {
         const {token, user} = response;
         localStorage.setItem('token', token);
         localStorage.setItem('currentUser', JSON.stringify(user));
-        this.userNameSubject.next(user.firstname);
+        this.userNameSubject.next(user.firstName);
       }),
       map(response => response),
     );

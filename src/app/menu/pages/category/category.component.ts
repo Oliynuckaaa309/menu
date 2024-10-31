@@ -35,7 +35,8 @@ export class CategoryComponent implements OnInit {
     const userData = localStorage.getItem('currentUser');
     if (userData) {
       const parsedData = JSON.parse(userData);
-      this.isAdmin = parsedData.isadmin;
+      console.log(parsedData)
+      this.isAdmin = parsedData.isAdmin;
     }
   }
 

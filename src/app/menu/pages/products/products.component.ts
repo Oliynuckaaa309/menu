@@ -42,7 +42,7 @@ export class ProductsComponent implements OnInit {
     const userData = localStorage.getItem('currentUser');
     if (userData) {
       const parsedData = JSON.parse(userData);
-      this.isAdmin = parsedData.isadmin;
+      this.isAdmin = parsedData.isAdmin;
     }
   }
 

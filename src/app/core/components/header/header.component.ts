@@ -28,12 +28,12 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.userName$.subscribe(data =>{this.userName = data as string});
+    this.authService.userName$.subscribe(data => this.userName = data as string);
     const user = localStorage.getItem('currentUser');
     if (user) {
       const currentUser = JSON.parse(user);
-      if (currentUser.firstname) {
-        this.userName = currentUser.firstname;
+      if (currentUser.firstName) {
+        this.userName = currentUser.firstName;
       }
     }
   }
