@@ -50,3 +50,9 @@ export interface UserState {
   isAuthenticated: boolean;
 }
 
+export interface Message {
+  data: Date;
+  sender: string;
+  message: string;
+}
+

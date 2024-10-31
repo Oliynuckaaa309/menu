@@ -1,0 +1,58 @@
+.form-container {
+  background-color: black;
+  color: white;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-title {
+  color: white;
+}
+
+.messages-container {
+  margin: 20px;
+  max-width: 600px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  height: 400px;
+}
+
+.messages-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.message-form {
+  display: flex;
+  margin-top: 20px;
+}
+
+.message-input {
+  width: 85%;
+}
+
+.btn-submit {
+  width: 15%;
+  height: 70%;
+}
+
+.btn-submit:disabled {
+  background-color: #cdc9c9;
+  color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.btn-close {
+  background-color: black;
+  color: #cdc9c9;
+}
+
+.btn-icon {
+  color: #cdc9c9;
+  margin-top: 20px;
+}
+

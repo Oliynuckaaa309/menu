@@ -1,0 +1,29 @@
+<div class="form-container">
+  <h2 mat-dialog-title class="form-title">Contact form</h2>
+  <button mat-button class="btn-close" (click)="onClose()">
+    <mat-icon class="btn-icon">close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content>
+  <div class="welcome-message" *ngIf="noPreviousMessages">
+    <p>Welcome 👋 ! You can always reach out to us for help.
+      Our team is here to assist you with any questions.</p>
+    <p> Feel free to contact us anytime! </p>
+  </div>
+  <div *ngFor="let message of messages">
+    <div class="message-content">
+    </div>
+  </div>
+</div>
+<form (ngSubmit)="onSubmit()" class="message-form">
+  <mat-form-field appearance="fill" class="message-input">
+    <mat-label>Type a message</mat-label>
+    <input matInput name="message" required [(ngModel)]="message"/>
+  </mat-form-field>
+  <button mat-raised-button class="btn-submit" color="primary" type="submit" [disabled]="!message">
+    <mat-icon>send</mat-icon>
+  </button>
+</form>
+
+
+
