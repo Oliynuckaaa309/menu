@@ -21,6 +21,29 @@
   height: 400px;
 }
 
+.message-content {
+  display: flex;
+  width: 90%;
+}
+
+.message {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid black;
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.support-message {
+  background-color: #dedcdc;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
 .messages-title {
   font-size: 24px;
   margin-bottom: 20px;
@@ -54,5 +77,20 @@
 .btn-icon {
   color: #cdc9c9;
   margin-top: 20px;
+}
+
+.user-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-item {
+  width: 30%;
+  margin-left: 5px;
+  background-color: #fdfbfb;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  align-items: center;
 }
 

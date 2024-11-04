@@ -5,22 +5,32 @@
   </button>
 </div>
 <div mat-dialog-content>
-  <div class="welcome-message" *ngIf="noPreviousMessages">
+  <div class="welcome-message" *ngIf="allMessages.length === 0 && !isSupport">
     <p>Welcome 👋 ! You can always reach out to us for help.
       Our team is here to assist you with any questions.</p>
     <p> Feel free to contact us anytime! </p>
   </div>
-  <div *ngFor="let message of messages">
-    <div class="message-content">
+  <ng-container *ngIf="isSupport">
+    <p class="user-title">All users</p>
+    <button class="user-item" *ngFor="let user of allUsers" (click)="joinRoomForSupport(user.id, user.firstName)">
+   {{ user.firstName}} {{user.lastName}}
+    </button>
+    <p> {{ currentUserName ?'Chat with '+ currentUserName : 'Choose user' }}</p>
+  </ng-container>
+  <div *ngFor="let message of allMessages" class="message-content">
+    <div class="message"
+           [ngClass]="{'support-message': message.sender_id === supportId, 'user-message': message.sender_id === userId}">
+        {{ message.message }}
     </div>
   </div>
 </div>
-<form (ngSubmit)="onSubmit()" class="message-form">
+<form class="message-form">
   <mat-form-field appearance="fill" class="message-input">
     <mat-label>Type a message</mat-label>
-    <input matInput name="message" required [(ngModel)]="message"/>
+    <input matInput name="message" required [(ngModel)]="newMessage"/>
   </mat-form-field>
-  <button mat-raised-button class="btn-submit" color="primary" type="submit" [disabled]="!message">
+  <button mat-raised-button class="btn-submit" (click)="onSubmit()" color="primary" type="submit"
+          [disabled]="!newMessage">
     <mat-icon>send</mat-icon>
   </button>
 </form>

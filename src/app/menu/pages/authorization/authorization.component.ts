@@ -1,16 +1,16 @@
-import {Component, inject} from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
-import {ReactiveFormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Store} from "@ngrx/store";
-import {MaterialModule} from '../../../shared/material.module';
-import {User} from '../../../shared/interface';
-import {AuthService} from '../../../core/services/auth/auth.service';
-import {AppState} from "../../../../store/store.index";
-import {loginUser, registerUser} from "../../../../store/users/users.actions";
-import {authError, registrationSuccess, selectedUserName} from "../../../../store/users/users.selectors";
+import { Component, inject } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from "@ngrx/store";
+import { MaterialModule } from '../../../shared/material.module';
+import { User } from '../../../shared/interface';
+import  {AuthService } from '../../../core/services/auth/auth.service';
+import { AppState } from "../../../../store/store.index";
+import { loginUser, registerUser } from "../../../../store/users/users.actions";
+import { authError, registrationSuccess, selectedUserName } from "../../../../store/users/users.selectors";
 
 
 @Component({
@@ -26,8 +26,8 @@ export class AuthorizationComponent {
   errorForRegistration!: string | null;
   private snackBar = inject(MatSnackBar);
   usersForm: FormGroup = this.fb.group({
-    firstname: ['', Validators.required],
-    lastname: ['', [Validators.required]],
+    firstName: ['', Validators.required],
+    lastName: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.min(6)]],
   });

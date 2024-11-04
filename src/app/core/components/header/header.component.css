@@ -56,3 +56,7 @@ input {
   height: 70%;
   margin: 20px 10px;
 }
+
+.user-name {
+  padding-top: 8px;
+}

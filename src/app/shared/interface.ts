@@ -28,6 +28,12 @@ export interface User {
   isAdmin: boolean;
 }
 
+export interface UserResponse extends User {
+  id: number;
+  createdAt: Date;
+  sender_id: number;
+}
+
 export interface LoginResponse {
   token: string;
   user: User;
@@ -51,8 +57,16 @@ export interface UserState {
 }
 
 export interface Message {
-  data: Date;
-  sender: string;
+  senderId: number;
+  recipientId: number;
   message: string;
+}
+
+export interface MessageResponse {
+  id: number;
+  sender_id: number;
+  recipient_id: number;
+  message: string;
+  createdAt: Date;
 }
 

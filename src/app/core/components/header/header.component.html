@@ -2,7 +2,7 @@
   <mat-toolbar class="app-header">
     <span class="logo">Restaurant menu </span>
     <div *ngIf="userName ; else guest" class="icon-group">
-      <p>{{ userName }}</p>
+      <p class="user-name"> {{ userName }}</p>
       <button class="btn-log" mat-icon-button (click)="logOut()">
         <mat-icon>exit_to_app</mat-icon>
       </button>

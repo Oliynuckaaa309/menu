@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, map, Observable, tap} from 'rxjs';
-import {User, LoginResponse} from '../../../shared/interface';
-import {apiKey} from '../../../../enviroments/environment';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { User, LoginResponse } from '../../../shared/interface';
+import { apiKey } from '../../../../enviroments/environment';
+
 
 @Injectable({
   providedIn: 'root'
