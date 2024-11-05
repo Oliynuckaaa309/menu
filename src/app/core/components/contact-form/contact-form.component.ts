@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
@@ -15,7 +15,7 @@ import { ChatService } from "../../services/chat/chat.service";
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css'
 })
-export class ContactFormComponent implements OnInit, OnDestroy {
+export class ContactFormComponent implements OnInit, OnDestroy, AfterViewInit {
   public allMessages: MessageResponse[] = [];
   public newMessage!: string;
   public createdMessage!: Message;
@@ -25,6 +25,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   public allUsers: UserResponse[] = [];
   public certainUserId!: number;
   public currentUserName!: string;
+  @ViewChild('chatContainer') public chatContainer: ElementRef | undefined;
 
   constructor(public dialogRef: MatDialogRef<ContactFormComponent>,
               public socketService: SocketIoService,
@@ -41,15 +42,20 @@ export class ContactFormComponent implements OnInit, OnDestroy {
         this.socketService.joinRoom(this.userId);
         this.chatService.getPreviousMessage(this.userId).subscribe(data => {
           this.allMessages = data;
+          this.scrollToBottom()
         })
       }
       this.socketService.getMessage().subscribe((message) => {
         this.allMessages.push(message);
+        this.scrollToBottom();
       })
     }
     this.chatService.getAllUsersForSupport().subscribe((data) => {
       this.allUsers = data;
     })
+  }
+  ngAfterViewInit() {
+    this.scrollToBottom();
   }
 
   joinRoomForSupport(id: number, name: string) {
@@ -58,7 +64,16 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     this.socketService.joinRoom(id);
     this.chatService.getPreviousMessage(this.certainUserId).subscribe(data => {
       this.allMessages = data;
+      this.scrollToBottom();
     })
+  };
+  public scrollToBottom(): void {
+    setTimeout(() => {
+      if(!this.chatContainer) {
+        return;
+      }
+      this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
+    }, 100);
   }
 
   onClose(): void {

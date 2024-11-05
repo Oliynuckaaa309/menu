@@ -4,7 +4,7 @@
     <mat-icon class="btn-icon">close</mat-icon>
   </button>
 </div>
-<div mat-dialog-content>
+<div mat-dialog-content #chatContainer>
   <div class="welcome-message" *ngIf="allMessages.length === 0 && !isSupport">
     <p>Welcome 👋 ! You can always reach out to us for help.
       Our team is here to assist you with any questions.</p>
@@ -17,7 +17,7 @@
     </button>
     <p> {{ currentUserName ?'Chat with '+ currentUserName : 'Choose user' }}</p>
   </ng-container>
-  <div *ngFor="let message of allMessages" class="message-content">
+  <div *ngFor="let message of allMessages" class="message-content" >
     <div class="message"
            [ngClass]="{'support-message': message.sender_id === supportId, 'user-message': message.sender_id === userId}">
         {{ message.message }}
