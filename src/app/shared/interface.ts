@@ -32,6 +32,7 @@ export interface UserResponse extends User {
   id: number;
   createdAt: Date;
   sender_id: number;
+  unread_count: number;
 }
 
 export interface LoginResponse {
@@ -68,5 +69,6 @@ export interface MessageResponse {
   recipient_id: number;
   message: string;
   createdAt: Date;
+  read_by_support:boolean;
 }
 

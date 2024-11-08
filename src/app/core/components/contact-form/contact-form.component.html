@@ -4,36 +4,44 @@
     <mat-icon class="btn-icon">close</mat-icon>
   </button>
 </div>
-<div mat-dialog-content #chatContainer>
+<div mat-dialog-content #chatContainer class="wrapper">
   <div class="welcome-message" *ngIf="allMessages.length === 0 && !isSupport">
     <p>Welcome 👋 ! You can always reach out to us for help.
       Our team is here to assist you with any questions.</p>
     <p> Feel free to contact us anytime! </p>
   </div>
+
+
   <ng-container *ngIf="isSupport">
-    <p class="user-title">All users</p>
-    <button class="user-item" *ngFor="let user of allUsers" (click)="joinRoomForSupport(user.id, user.firstName)">
-   {{ user.firstName}} {{user.lastName}}
-    </button>
-    <p> {{ currentUserName ?'Chat with '+ currentUserName : 'Choose user' }}</p>
+    <div class="support-modal">
+      <p class="user-title">All users</p>
+      <button class="user-item" *ngFor="let user of allUsers" (click)="joinRoomForSupport(user.id, user.firstName)">
+        {{ user.firstName }} {{ user.lastName }}
+        <span class="btn-count">{{ user.unread_count > 0 ? user.unread_count : "" }}</span>
+      </button>
+    </div>
   </ng-container>
-  <div *ngFor="let message of allMessages" class="message-content" >
-    <div class="message"
+
+  <div class="message-list">
+    <p *ngIf="isSupport"> {{ currentUserName ? 'Chat with ' + currentUserName : 'Choose user for communication' }}</p>
+    <div *ngFor="let message of allMessages" class="message-content"  #message (messageWatched)="onMessageWatched(message)" appWatchedMessageDirective>
+      <div class="message"
            [ngClass]="{'support-message': message.sender_id === supportId, 'user-message': message.sender_id === userId}">
         {{ message.message }}
+      </div>
     </div>
   </div>
 </div>
-<form class="message-form">
-  <mat-form-field appearance="fill" class="message-input">
-    <mat-label>Type a message</mat-label>
-    <input matInput name="message" required [(ngModel)]="newMessage"/>
+
+<form #formRef="ngForm" class="message-form" >
+  <mat-form-field class="message-wrapper" >
+    <input class="message-input" matInput name="message" required [(ngModel)]="newMessage" placeholder="Type a message"/>
   </mat-form-field>
-  <button mat-raised-button class="btn-submit" (click)="onSubmit()" color="primary" type="submit"
-          [disabled]="!newMessage">
+  <button mat-raised-button class="btn-submit" color="primary" type="submit" (click)="onSubmit(formRef)" [disabled]="!newMessage">
     <mat-icon>send</mat-icon>
   </button>
 </form>
+
 
 
 

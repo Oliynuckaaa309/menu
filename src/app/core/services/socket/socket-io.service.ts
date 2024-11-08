@@ -13,8 +13,8 @@ export class SocketIoService {
     this.clientSocket = io(apiKey);
   }
 
-  joinRoom(userId: number) {
-    this.clientSocket.emit('joinRoom', {senderId: userId});
+  joinRoom(roomId: number) {
+    this.clientSocket.emit('joinRoom', {roomId: roomId});
   }
 
   sendMessage(message: Message) {
@@ -27,7 +27,10 @@ export class SocketIoService {
         observer.next(message);
       });
     });
+  }
 
+  markMessageAsRead(id:number){
+    this.clientSocket.emit('WatchedMessage', {id:id});
   }
 
   disconnect() {
