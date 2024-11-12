@@ -1,8 +1,8 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable,} from 'rxjs';
-import {Category, Product,} from '../../shared/interface';
-import {apiKey} from '../../../enviroments/environment';
+import {  HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Category, Product } from '../../shared/interface';
+import { apiKey } from '../../../enviroments/environment';
 
 @Injectable({
   providedIn: 'root',

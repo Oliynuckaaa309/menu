@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -6,14 +6,14 @@ import {
   MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
-import {NgxMatFileInputModule} from "@angular-material-components/file-input";
-import {Store} from "@ngrx/store";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatInput} from "@angular/material/input";
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {ProductModalWindowData} from "../../../../shared/interface";
-import {AppState} from "../../../../../store/store.index";
-import {createCategory, updateCategory} from "../../../../../store/categories/categories.action";
+import { NgxMatFileInputModule } from "@angular-material-components/file-input";
+import { Store } from "@ngrx/store";
+import { MatFormField, MatLabel } from "@angular/material/form-field";
+import { MatInput } from "@angular/material/input";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { ProductModalWindowData } from "../../../../shared/interface";
+import { AppState } from "../../../../../store/store.index";
+import { createCategory, updateCategory } from "../../../../../store/categories/categories.action";
 
 @Component({
   selector: 'app-categories-editor',

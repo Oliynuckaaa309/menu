@@ -1,17 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {CommonModule} from '@angular/common';
-import {Store} from '@ngrx/store';
-import {Observable} from "rxjs";
-import {MatIconButton} from "@angular/material/button";
-import {MatDialog} from '@angular/material/dialog';
-import {MaterialModule} from '../../../shared/material.module';
-import {Product,} from '../../../shared/interface';
-import {DialogComponent} from '../../dialogs/dialog/dialog.component';
-import {EditorComponent} from '../../dialogs/editor/editor.component';
-import {selectAllProducts} from '../../../../store/products/products.selector';
-import {loadProductsByCategory} from '../../../../store/products/products.actions';
-import {AppState} from "../../../../store/store.index";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule }  from '@angular/common';
+import { Store } from '@ngrx/store';
+import { Observable } from "rxjs";
+import { MatIconButton } from "@angular/material/button";
+import { MatDialog} from '@angular/material/dialog';
+import { MaterialModule } from '../../../shared/material.module';
+import { Product } from '../../../shared/interface';
+import { DialogComponent } from '../../dialogs/dialog/dialog.component';
+import { EditorComponent } from '../../dialogs/editor/editor.component';
+import { selectAllProducts } from '../../../../store/products/products.selector';
+import { loadProductsByCategory } from '../../../../store/products/products.actions';
+import { AppState } from "../../../../store/store.index";
 
 @Component({
   selector: 'app-products',

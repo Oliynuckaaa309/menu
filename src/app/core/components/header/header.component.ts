@@ -1,19 +1,19 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {Store} from "@ngrx/store";
-import {MatDialog} from '@angular/material/dialog';
-import {MaterialModule} from '../../../shared/material.module';
-import {Product} from '../../../shared/interface';
-import {AuthorizationComponent} from '../../../menu/pages/authorization/authorization.component';
-import {AuthService} from '../../services/auth/auth.service';
-import {AppState} from "../../../../store/store.index";
-import {selectAllProducts} from "../../../../store/products/products.selector";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Store } from "@ngrx/store";
+import { MatDialog} from '@angular/material/dialog';
+import { MaterialModule } from '../../../shared/material.module';
+import { Product } from '../../../shared/interface';
+import { AuthorizationComponent } from '../../../menu/pages/authorization/authorization.component';
+import { AuthService } from '../../services/auth/auth.service';
+import { AppState } from "../../../../store/store.index";
+import { selectAllProducts } from "../../../../store/products/products.selector";
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MaterialModule, CommonModule],
+  imports: [ MaterialModule, CommonModule ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

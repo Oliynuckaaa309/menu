@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from "@ngrx/store";
 import { MaterialModule } from '../../../shared/material.module';
 import { User } from '../../../shared/interface';
-import  {AuthService } from '../../../core/services/auth/auth.service';
+import { AuthService } from '../../../core/services/auth/auth.service';
 import { AppState } from "../../../../store/store.index";
 import { loginUser, registerUser } from "../../../../store/users/users.actions";
 import { authError, registrationSuccess, selectedUserName } from "../../../../store/users/users.selectors";

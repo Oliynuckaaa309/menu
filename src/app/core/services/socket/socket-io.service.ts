@@ -29,8 +29,8 @@ export class SocketIoService {
     });
   }
 
-  markMessageAsRead(id:number){
-    this.clientSocket.emit('WatchedMessage', {id:id});
+  markMessageAsRead(id: number) {
+    this.clientSocket.emit('WatchedMessage', {id: id});
   }
 
   disconnect() {
